@@ -14,7 +14,7 @@ namespace CravingsBoard;
 /// Transient ViewModel for ViewEditor — player picker for tracked cravings.
 /// Uses GamePickerList(typeof(IAlias)) for player/alias selection.
 /// </summary>
-[Serialized, AutogenClass]
+[AutogenClass]
 public class CookConfigViewModel : IController, IViewController, IHasUniversalID, INotifyPropertyChanged
 {
     private int _controllerID;

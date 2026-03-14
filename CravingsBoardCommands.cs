@@ -15,7 +15,7 @@ namespace CravingsBoard;
 public static class CravingsBoardCommands
 {
     private const string PANEL_CATEGORY = "CravingsBoard";
-    [ChatCommand("Cravings board for cooks — see what players are craving.", "cravingsboard")]
+    [ChatCommand("Cravings board for cooks — see what players are craving.")]
     public static void CravingsBoard(User user)
     {
         user.MsgLocStr(

@@ -27,6 +27,7 @@ EcoModKit_v0.12.0.6-beta/      — ModKit reference (gitignored except Eco.ModKi
 - `UserManager.FindUserByName(string)` — look up user by name
 - `user.Stomach.Craving?.Name` — read active craving
 - `user.MsgLocStr(string)` — send chat message
+- `user.Player.OpenInfoPanel(title, content, category)` — resizable/draggable info panel
 - `GamePickerList(typeof(IAlias))` — player/alias picker widget
 - `ViewEditor.Edit(user, controller, onSubmit, ...)` — settings panel
 - `[ChatCommandHandler]` + `[ChatCommand]` + `[ChatSubCommand]` — commands
@@ -38,6 +39,8 @@ EcoModKit_v0.12.0.6-beta/      — ModKit reference (gitignored except Eco.ModKi
 - **Target framework**: net8.0 — NOT net9.0 (Eco 0.12.x)
 - **Bool ViewEditor**: `[Autogen]` bool checkbox never fires `[AutoRPC]` — use `int` (0/1) workaround
 - **Command naming**: Avoid conflicts with other mods' command prefixes
+- **ChatCommand duplicate key**: Don't pass explicit alias matching method name — `[ChatCommand("desc")]` on `CravingsBoard()` auto-registers as `cravingsboard`; adding `"cravingsboard"` alias causes `ArgumentException: duplicate key`
+- **[Serialized] on transient ViewModel**: Causes silent server hang at startup — use `[AutogenClass]` alone for ephemeral ViewEditor controllers
 
 ## Naming Conventions
 
