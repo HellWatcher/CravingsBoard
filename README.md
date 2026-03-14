@@ -4,6 +4,14 @@ An Eco mod that lets cooks see what other players are craving. Satisfying a play
 
 ## Installation
 
+### From Release (recommended)
+
+1. Download `CravingsBoard.dll` from the [latest release](../../releases/latest)
+2. Copy it to your server's `Mods/` directory
+3. Restart the server
+
+### From Source
+
 1. Build: `dotnet build`
 2. Copy `bin/Debug/net8.0/CravingsBoard.dll` to your server's `Mods/` directory
 3. Restart the server
