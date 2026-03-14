@@ -14,6 +14,7 @@ namespace CravingsBoard;
 [ChatCommandHandler]
 public static class CravingsBoardCommands
 {
+    private const string PANEL_CATEGORY = "CravingsBoard";
     [ChatCommand("Cravings board for cooks — see what players are craving.", "cravingsboard")]
     public static void CravingsBoard(User user)
     {
@@ -47,10 +48,14 @@ public static class CravingsBoardCommands
         }
 
         var sb = new StringBuilder();
-        sb.AppendLine("--- Active Cravings ---");
+        sb.AppendLine("Active Cravings");
+        sb.AppendLine("───────────────");
         foreach (var (food, players) in grouped)
-            sb.AppendLine($"  {food} ({players.Count}): {string.Join(", ", players)}");
+            sb.AppendLine($"{food} ×{players.Count}   {string.Join(", ", players)}");
 
-        user.MsgLocStr(sb.ToString());
+        if (user.Player != null)
+            user.Player.OpenInfoPanel("Active Cravings", sb.ToString(), PANEL_CATEGORY);
+        else
+            user.MsgLocStr(sb.ToString());
     }
 }
